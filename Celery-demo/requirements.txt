@@ -1,0 +1,9 @@
+# Core dependencies
+eventlet
+librabbitmq
+celery==5.1.0b1
+pandas
+
+# App Specific Dependencies
+
+# Test Dependencies
