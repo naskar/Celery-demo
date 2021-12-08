@@ -18,8 +18,8 @@ d = {}
 DEFAULT_QUEUE_NAME = 'dht'
 DEFAULT_EXCHANGE_NAME = 'dht'
 DEFAULT_ROUTING_KEY = 'dht'
-INVENTORY_QUEUE_NAME = 'dht_inv'
-INVENTORY_ROUTING_KEY = 'dht_inv'
+# INVENTORY_QUEUE_NAME = 'dht_inv'
+# INVENTORY_ROUTING_KEY = 'dht_inv'
 
 broker_url = f'{BROKER_PROTO}://{env["BROKER_USER"]}:{env["BROKER_PASS"]}@{env["BROKER_HOST"]}:{BROKER_PORT}/'
 
