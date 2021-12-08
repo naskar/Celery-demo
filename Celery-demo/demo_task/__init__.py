@@ -17,9 +17,9 @@ d = {}
 
 DEFAULT_QUEUE_NAME = 'dht'
 DEFAULT_EXCHANGE_NAME = 'dht'
-# DEFAULT_ROUTING_KEY = 'dht'
-# INVENTORY_QUEUE_NAME = 'dht_inv'
-# INVENTORY_ROUTING_KEY = 'dht_inv'
+DEFAULT_ROUTING_KEY = 'dht'
+INVENTORY_QUEUE_NAME = 'dht_inv'
+INVENTORY_ROUTING_KEY = 'dht_inv'
 
 broker_url = f'{BROKER_PROTO}://{env["BROKER_USER"]}:{env["BROKER_PASS"]}@{env["BROKER_HOST"]}:{BROKER_PORT}/'
 
@@ -41,12 +41,11 @@ app.conf.update(
     imports=['demo_task.tasks'],
     task_routes=([
                      ('demo_task.tasks.kickoff_startup', {'queue': DEFAULT_QUEUE_NAME})
-                     # ('demo_task.tasks.process_latest_inventory', {'queue': INVENTORY_QUEUE_NAME}),
                  ],),
     worker_hijack_root_logger=False,
     task_acks_late=True,
     worker_prefetch_multiplier=1,
-    broker_pool_limit=int(getenv('POOL_SIZE', 5)),
+    broker_pool_limit=int(5),
     worker_redirect_stdouts=False,
 )
 

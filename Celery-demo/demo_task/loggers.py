@@ -74,8 +74,8 @@ def full_logger(
     logging.basicConfig(filename=file_name)
     json_logging.init_non_web(enable_json=True, custom_formatter=CustomJSONLog)
     logger = logging.getLogger(name)
-    if logger.hasHandlers():
-        logger.handlers.clear()
+    # if logger.hasHandlers():
+    logger.handlers.clear()
     json_logging.config_root_logger()
     logger.setLevel(os.getenv('LOG_LEVEL', default=logging.INFO))
     logger.addHandler(logging.StreamHandler())
